@@ -3,8 +3,10 @@ import styles from "./page.module.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { useEffect, useState, useCallback } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const [isLoaded, setIsLoaded] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [headerStyle, setHeaderStyle] = useState({
@@ -97,7 +99,7 @@ export default function Home() {
             </p>
             
             <div className={styles.heroCta}>
-              <button className={styles.ctaButton}>
+              <button className={styles.ctaButton} onClick={() => router.push('/booking')}>
                 Записаться онлайн
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
